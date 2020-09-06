@@ -9,10 +9,10 @@ export const Select: React.FC<IProps> = (props) => {
     const {options, onChange} = props;
     return (
         <select onChange={(e) => {
-            console.log({value: e.target.value})
-            onChange(e.target.value)
+            console.log({value: e.target.value});
+            onChange(e.target.value);
         }}>
             {options.map((option) => (<option key={option} value={option}>{option}</option>))}
         </select>
-    )
+    );
 }

@@ -1,5 +1,6 @@
 import * as React from "react";
 import {useFetch} from "./hooks/useFetch";
+import {RefetchButton} from "./ui/RefetchButton";
 
 
 interface IProps {
@@ -9,13 +10,10 @@ interface IProps {
 
 export const CarDetail: React.FC<IProps> = (props) => {
     const {currentMake, currentModel} = props;
-    const [carDetail, isRequestOk] = useFetch("vehicles", `?make=${currentMake}&model=${currentModel}`, [currentMake, currentModel])
+    const [carDetail, isRequestOk, refetch] = useFetch("vehicles", `?make=${currentMake}&model=${currentModel}`, [currentMake, currentModel]);
 
     if (!isRequestOk) {
-        return <div>
-            <p>Error while loading data:</p>
-            {/*<p>Click this <button onClick={() => setReload((prevState => !prevState))}>button</button> to try again</p>*/}
-        </div>;
+        return <RefetchButton refetch={refetch}/>;
     }
 
     return (
@@ -29,7 +27,6 @@ export const CarDetail: React.FC<IProps> = (props) => {
             {/*)}*/}
 
 
-
         </div>
-    )
+    );
 }

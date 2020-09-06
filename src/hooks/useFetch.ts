@@ -1,9 +1,9 @@
 import {useEffect, useState, DependencyList} from "react";
 
-export const useFetch = (apiPath: string, query: string, deps: DependencyList): [string[], boolean] => {
+export const useFetch = (apiPath: string, query: string, deps: DependencyList): [string[], boolean, () => void] => {
     const [data, setData] = useState<string[]>([]);
     const [isRequestOk, setIsRequestOk] = useState<boolean>(false);
-
+    const [refetch, setRefetch] = useState(false);
     useEffect(() => {
         (async () => {
                 const commonUrl = `http://localhost:8080/api/`;
@@ -15,7 +15,7 @@ export const useFetch = (apiPath: string, query: string, deps: DependencyList): 
                 setData(json);
             }
         )();
-    }, deps);
+    }, [...deps, refetch]);
 
-    return [data, isRequestOk];
+    return [data, isRequestOk, () => setRefetch((prevValue) => !prevValue)];
 };
