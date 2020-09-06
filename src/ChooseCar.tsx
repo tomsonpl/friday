@@ -1,6 +1,7 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {Select} from "./ui/Select";
+import {CarModels} from "./CarModels";
 
 interface IProps {}
 
@@ -28,7 +29,7 @@ export const ChooseCar: React.FC<IProps> = (props) => {
             }
 
             {chosenMake != null && (
-                <div>Chosen {chosenMake}</div>
+                <CarModels chosenMake={chosenMake}/>
             )}
         </div>
     )
