@@ -8,7 +8,7 @@ import {RefetchButton} from "./ui/RefetchButton";
 
 export const CarChoose: React.FC<{}> = () => {
     const [currentMake, setCurrentMake] = useState<string | null>(null);
-    const [makeOptions, isRequestOk, refetch] = useFetch("makes", "", []);
+    const [makeOptions, isRequestOk, refetch] = useFetch<string>("makes", "", []);
 
     if (!isRequestOk) {
         return <RefetchButton refetch={refetch}/>;

@@ -2,7 +2,7 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 import {Select} from "./ui/Select";
 import {useFetch} from "./hooks/useFetch";
-import {CarDetail} from "./CarDetail";
+import {CarList} from "./CarList";
 import {usePrevious} from "./hooks/usePrevious";
 import {RefetchButton} from "./ui/RefetchButton";
 
@@ -15,7 +15,7 @@ export const CarModels: React.FC<IProps> = (props) => {
     const {currentMake} = props;
     const [currentModel, setChosenModel] = useState<string | null>(null);
     const previousMake = usePrevious(currentMake, null, [currentMake]);
-    const [modelOptions, isRequestOk, refetch] = useFetch("models", `?make=${currentMake}`, [currentMake]);
+    const [modelOptions, isRequestOk, refetch] = useFetch<string>("models", `?make=${currentMake}`, [currentMake]);
 
     useEffect(() => {
         if (previousMake !== currentMake) {
@@ -38,7 +38,7 @@ export const CarModels: React.FC<IProps> = (props) => {
             )}
 
             {currentMake && currentModel && (
-                <CarDetail currentMake={currentMake} currentModel={currentModel}/>
+                <CarList currentMake={currentMake} currentModel={currentModel}/>
             )}
 
         </div>
