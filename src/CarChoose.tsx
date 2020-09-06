@@ -6,8 +6,8 @@ import {useFetch} from "./hooks/useFetch";
 
 interface IProps {}
 
-export const ChooseCar: React.FC<IProps> = (props) => {
-    const [chosenMake, useChosenMake] = useState<string | null>(null)
+export const CarChoose: React.FC<IProps> = (props) => {
+    const [currentMake, setCurrentMake] = useState<string | null>(null)
     const [reload, setReload] = useState(false);
     const [makeOptions, isRequestOk] = useFetch("makes", "", [reload])
 
@@ -21,10 +21,10 @@ export const ChooseCar: React.FC<IProps> = (props) => {
         <div>
             <h1>Please choose a car:</h1>
 
-            <Select options={makeOptions} onChange={useChosenMake}/>
+            <Select options={makeOptions} onChange={setCurrentMake}/>
 
-            {chosenMake != null && (
-                <CarModels chosenMake={chosenMake}/>
+            {currentMake != null && (
+                <CarModels currentMake={currentMake}/>
             )}
         </div>
     )

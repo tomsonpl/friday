@@ -1,5 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {ChooseCar} from "./ChooseCar";
+import {CarChoose} from "./CarChoose";
 
-ReactDOM.render(<ChooseCar/>, document.getElementById('root'));
+ReactDOM.render(<CarChoose/>, document.getElementById('root'));
