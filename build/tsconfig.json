@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "strict": true,
+    "outDir": "./dist/",
+    "lib": ["DOM", "ES5", "ScriptHost", "ES2015"]
+
+  },
+  "files": [
+    "../src/index.tsx"
+  ]
+}

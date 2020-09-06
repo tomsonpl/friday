@@ -1,0 +1,32 @@
+{
+  "name": "friday",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:tomsonpl/friday.git",
+  "author": "Tomasz <t.ciecierski@rynekpierwotny.pl>",
+  "license": "MIT",
+  "scripts": {
+    "start:client": "webpack-dev-server --config build/webpack_client.config.js",
+    "start-tsc:client": "tsc --watch --noEmit --preserveWatchOutput --project build/tsconfig.json"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.4.1",
+    "typescript": "^3.9.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
