@@ -33,6 +33,8 @@ module.exports = {
         extensions: [".tsx", ".ts", ".js"],
     },
     devServer: {
+        port: 8088,
+        host: "0.0.0.0",
         open: true
     },
     plugins: [
