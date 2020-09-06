@@ -1,32 +1,27 @@
 import * as React from "react";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Select} from "./ui/Select";
 import {CarModels} from "./CarModels";
+import {useFetch} from "./hooks/useFetch";
 
 interface IProps {}
 
 export const ChooseCar: React.FC<IProps> = (props) => {
-    const [makeOptions, setMakeOptions] = useState<string[]>([])
     const [chosenMake, useChosenMake] = useState<string | null>(null)
-    useEffect(() => {
-        (async () => {
-            const makeResponse = await fetch("http://localhost:8080/api/makes")
-            const makeOptions = await makeResponse.json();
-            setMakeOptions(makeOptions)
-        })();
+    const [reload, setReload] = useState(false);
+    const [makeOptions, isRequestOk] = useFetch("makes", "", [reload])
 
-    }, [])
-
+    if (!isRequestOk) {
+        return <div>
+            <p>Error while loading data:</p>
+            <p>Click this <button onClick={() => setReload((prevState => !prevState))}>button</button> to try again</p>
+        </div>;
+    }
     return (
         <div>
             <h1>Please choose a car:</h1>
-            {makeOptions.length ? (
-                    <Select options={makeOptions} onChange={useChosenMake}/>
-                )
-                : (
-                    <p style={{color: "red"}}>Error while loading data - please reload the page</p>
-                )
-            }
+
+            <Select options={makeOptions} onChange={useChosenMake}/>
 
             {chosenMake != null && (
                 <CarModels chosenMake={chosenMake}/>
