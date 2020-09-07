@@ -5,8 +5,7 @@ import {CarModels} from "./CarModels";
 import {useFetch} from "./hooks/useFetch";
 import {RefetchButton} from "./ui/RefetchButton";
 
-
-export const CarChoose: React.FC<{}> = () => {
+export const CarChoose: React.FC = () => {
     const [currentMake, setCurrentMake] = useState<string | null>(null);
     const [makeOptions, isRequestOk, refetch] = useFetch<string>("makes", "", []);
 
@@ -15,9 +14,11 @@ export const CarChoose: React.FC<{}> = () => {
     }
     return (
         <div>
-            <h1>Please choose a car:</h1>
-
-            <Select options={makeOptions} onChange={setCurrentMake}/>
+            <Select
+                options={makeOptions}
+                onChange={setCurrentMake}
+                placeholder="Please select car's Make"
+            />
 
             {currentMake != null && (
                 <CarModels currentMake={currentMake}/>

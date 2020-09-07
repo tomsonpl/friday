@@ -34,7 +34,11 @@ export const CarModels: React.FC<IProps> = (props) => {
             {!modelOptions.length ? (
                 <div>Sorry, no models for {currentMake} are available</div>
             ) : (
-                <Select options={modelOptions} onChange={setChosenModel}/>
+                <Select
+                    options={modelOptions}
+                    onChange={setChosenModel}
+                    placeholder="Please select car's Model"
+                />
             )}
 
             {currentMake && currentModel && (
