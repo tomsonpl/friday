@@ -15,7 +15,14 @@ interface IProps {
     details: ICarDetail;
 }
 export const CarDetail: React.FC<IProps> = (props) => {
+    const {make, model, enginePowerPS} = props.details;
     return (
-    <p>{props.details.make}{props.details.model}{props.details.enginePowerPS}{props.details.enginePowerKW}{props.details.fuelType}{props.details.bodyType}{props.details.engineCapacity}</p>
+        <div style={{boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"}}>
+                <div style={{padding: "2px 16px"}}>
+                    <h4><b>Make: {make}</b></h4>
+                    <p>Model: {model}</p>
+                    <p>Pferdestarke: {enginePowerPS}</p>
+                </div>
+        </div>
     )
 }
