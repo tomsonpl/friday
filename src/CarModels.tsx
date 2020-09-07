@@ -29,8 +29,6 @@ export const CarModels: React.FC<IProps> = (props) => {
 
     return (
         <div>
-            <h1>Choosen Model: {currentMake}</h1>
-
             {!modelOptions.length ? (
                 <div>Sorry, no models for {currentMake} are available</div>
             ) : (

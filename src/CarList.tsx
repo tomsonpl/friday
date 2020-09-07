@@ -1,7 +1,9 @@
 import * as React from "react";
+import {useState} from "react";
 import {useFetch} from "./hooks/useFetch";
 import {RefetchButton} from "./ui/RefetchButton";
 import {CarDetail, ICarDetail} from "./CarDetail";
+import {CarForm} from "./CarsForm";
 
 
 interface IProps {
@@ -13,21 +15,26 @@ interface IProps {
 export const CarList: React.FC<IProps> = (props) => {
     const {currentMake, currentModel} = props;
     const [carsList, isRequestOk, refetch] = useFetch<ICarDetail>("vehicles", `?make=${currentMake}&model=${currentModel}`, [currentMake, currentModel]);
+    const [fuelType, setFuelType] = useState<string | null>(null)
+    const [bodyType, setBodyType] = useState<string | null>(null)
+    const [minHP, setMinHP] = useState<number | null>(null);
 
     if (!isRequestOk) {
         return <RefetchButton refetch={refetch}/>;
     }
 
-
-    const filteredList = carsList;
+    const filteredList = carsList.filter((car) => {
+        return (bodyType != null ? car.bodyType === bodyType : true)
+            && (fuelType != null ? car.fuelType === fuelType : true)
+            && (minHP != null ? car.enginePowerPS > minHP : true)
+    });
     return (
         <div>
-            <h1>Car details: {currentMake} - {currentModel}</h1>
-            <h2>FORM:</h2>
+            <CarForm setBodyType={setBodyType} setFuelType={setFuelType} setMinHP={setMinHP}/>
             {filteredList.map((car: ICarDetail, index: number) => {
                 return (
                     <React.Fragment key={index}>
-                        <CarDetail details={car} />
+                        <CarDetail details={car}/>
                     </React.Fragment>
                 )
             })}

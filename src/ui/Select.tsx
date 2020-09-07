@@ -13,7 +13,7 @@ interface IValueLabel {
 }
 export const Select: React.FC<IProps> = (props) => {
     const {options, onChange, placeholder} = props;
-    const valueLabelOptions: IValueLabel[] = options.map((option: string) => ({value: option!, label: option!}));
+    const valueLabelOptions: IValueLabel[] = options.map((option: string) => ({value: option, label: option}));
 
         return (
             <ReactSelect
