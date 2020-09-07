@@ -14,7 +14,7 @@ export const CarForm: React.FC<IProps> = props => {
         <form>
             <Select options={fuelTypeOptions} onChange={setFuelType} placeholder={"Choose car's Fuel type"}/>
             <Select options={bodyTypeOptions} onChange={setBodyType} placeholder={"Choose car's Body type"}/>
-            <input type="number" onChange={(event) => setMinHP(+event.target.value)} placeholder={"Choose car's minimum Horse power"} />
+            <input style={{width: "100%"}} type="number" onChange={(event) => setMinHP(+event.target.value)} placeholder={"Choose car's minimum Pferdestarke"} />
         </form>
     )
 }
