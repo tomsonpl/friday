@@ -1,5 +1,7 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
+import styled from "@emotion/styled";
+
 import {Select} from "./ui/Select";
 import {useFetch} from "./hooks/useFetch";
 import {CarList} from "./CarList";
@@ -28,9 +30,9 @@ export const CarModels: React.FC<IProps> = (props) => {
     }
 
     return (
-        <div>
+        <Holder>
             {!modelOptions.length ? (
-                <div>Sorry, no models for {currentMake} are available</div>
+                <RedNote>Sorry, no models for {currentMake} are available</RedNote>
             ) : (
                 <Select
                     options={modelOptions}
@@ -43,6 +45,17 @@ export const CarModels: React.FC<IProps> = (props) => {
                 <CarList currentMake={currentMake} currentModel={currentModel}/>
             )}
 
-        </div>
+        </Holder>
     );
 }
+
+const Holder = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+export const RedNote = styled.p`
+  display: flex;
+  font-size: 1rem;
+  color: #ff0000;
+`;

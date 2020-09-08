@@ -11,6 +11,8 @@
     "start-tsc:client": "tsc --watch --noEmit --preserveWatchOutput --project build/tsconfig.json"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@types/react-select": "^3.0.19",
@@ -25,6 +27,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
     "babel-loader": "^8.1.0",
     "html-webpack-plugin": "^4.4.1",
     "typescript": "^3.9.7",

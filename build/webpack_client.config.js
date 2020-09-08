@@ -17,7 +17,7 @@ module.exports = {
                     {
                         loader: "babel-loader",
                         options: {
-                            presets: ["@babel/preset-typescript", "@babel/preset-react"],
+                            presets: ["@babel/preset-typescript", "@babel/preset-react", "@emotion/babel-preset-css-prop"],
                             plugins: [
                                 "@babel/plugin-proposal-optional-chaining",
                                 "@babel/plugin-proposal-nullish-coalescing-operator",
@@ -39,6 +39,7 @@ module.exports = {
     },
     plugins: [
         new HtmlPlugin({
+            meta: {viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'},
             template: path.resolve("build/index.html"),
         })
     ],
