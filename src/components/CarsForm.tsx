@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "@emotion/styled";
 
 import {Select} from "./ui/Select"
-import {fuelTypeOptions, bodyTypeOptions} from "./utils/options";
+import {fuelTypeOptions, bodyTypeOptions} from "../utils/options";
 
 interface IProps {
     setBodyType: (value: string) => void;

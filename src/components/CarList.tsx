@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useState} from "react";
-import {useFetch} from "./hooks/useFetch";
+import {useFetch} from "../hooks/useFetch";
 import {RefetchButton} from "./ui/RefetchButton";
 import {CarDetail, ICarDetail} from "./CarDetail";
 import {CarForm} from "./CarsForm";

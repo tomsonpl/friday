@@ -1,12 +1,12 @@
 import * as React from "react";
 import {useState} from "react";
-import {Select} from "./ui/Select";
-import {CarModels} from "./CarModels";
-import {useFetch} from "./hooks/useFetch";
-import {RefetchButton} from "./ui/RefetchButton";
+import {Select} from "../components/ui/Select";
+import {CarModels} from "../components/CarModels";
+import {useFetch} from "../hooks/useFetch";
+import {RefetchButton} from "../components/ui/RefetchButton";
 import styled from "@emotion/styled";
 
-export const CarChoose: React.FC = () => {
+export const CarMain: React.FC = () => {
     const [currentMake, setCurrentMake] = useState<string | null>(null);
     const [makeOptions, isRequestOk, refetch] = useFetch<string>("makes", "", []);
 

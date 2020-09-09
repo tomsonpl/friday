@@ -3,9 +3,9 @@ import {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 
 import {Select} from "./ui/Select";
-import {useFetch} from "./hooks/useFetch";
+import {useFetch} from "../hooks/useFetch";
 import {CarList} from "./CarList";
-import {usePrevious} from "./hooks/usePrevious";
+import {usePrevious} from "../hooks/usePrevious";
 import {RefetchButton} from "./ui/RefetchButton";
 
 
